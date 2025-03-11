@@ -1,0 +1,7 @@
+@font-face {
+    font-family: "GreatVibes";
+    /* src: url("../local.fonts/NautilusPompilius/NautilusPompilius.woff2") format("woff2"); */
+    src: url('./GreatVibes.woff2') format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}

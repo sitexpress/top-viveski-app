@@ -1,0 +1,23 @@
+.root {
+    width: 350px;
+    height: 350px;
+    /* background-color: var(--notification-color, var(--mantine-primary-color-filled)); */
+
+    /* &::before {
+        background-color: var(--mantine-color-white);
+    } */
+}
+
+.description,
+.title {
+    /* color: var(--mantine-color-white); */
+}
+
+.closeButton {
+    content: "<Button>Got it</Button>";
+    color: var(--mantine-color-white);
+
+    @mixin hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+}
