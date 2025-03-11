@@ -75,7 +75,7 @@ export const BadgeCard: React.FC<BadgeCard> = ({
         <Card withBorder radius="md" p="md" className={classes.card}>
             <Card.Section>
                 {image ? (
-                    <Image src={image} alt={title} height={180} />
+                    <Image src={image} alt={title} height={180} className={classes.img}/>
                 ) : (
                     <AspectRatio ratio={16 / 9}>
                         <ReactPlayer
@@ -103,14 +103,14 @@ export const BadgeCard: React.FC<BadgeCard> = ({
                             Free consultation
                         </Text> */}
                     </div>
-                    <div>
-                        {/* <Badge size="sm" variant="light">
+                    {/* <div>
+                        <Badge size="sm" variant="light">
                             {country}
-                        </Badge> */}
+                        </Badge>
                         <Badge variant="outline" ml="xs">
                             - ${discount}% на весну 2025
                         </Badge>
-                    </div>
+                    </div> */}
                 </Group>
                 <Text fz="sm" mt="xs">
                     {description}

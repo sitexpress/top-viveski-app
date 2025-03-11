@@ -10,7 +10,6 @@ import {
     IconCapture,
     IconChartColumn,
     IconCylinder,
-    IconDeviceLaptop,
     IconDrone,
     IconFrustum,
     IconGlobe,
@@ -18,7 +17,6 @@ import {
     IconMessageChatbot,
     IconProps,
     IconRotate3d,
-    IconShieldHalfFilled,
     IconStopwatch,
 } from "@tabler/icons-react";
 import { Badge, Button, Container, Flex, Group, SimpleGrid, Text, Title, useMantineTheme } from "@mantine/core";
@@ -98,7 +96,7 @@ const mockdata = [
 
 export const badgesMockdata: BadgesMockdataType[] = [
     {
-        image: "/images/cards/aerial-media-content-8.jpg",
+        image: "/images/badges/image-1.jpg",
         title: "Изготовление наружных рекламных конструкций",
         country: "New-York",
         description:
@@ -107,7 +105,7 @@ export const badgesMockdata: BadgesMockdataType[] = [
         discount: 5,
         price: 400,
         badges: [
-            { icon: IconBuildings, label: "Aerial imagery" },
+            { icon: IconBuildings, label: "Aerial imagery"},
             { icon: IconCake, label: "Birthdays" },
             { icon: IconLeaf2, label: "Nature" },
             { icon: IconBalloon, label: "Weddings" },
@@ -115,7 +113,7 @@ export const badgesMockdata: BadgesMockdataType[] = [
         ],
     },
     {
-        image: "/images/cards/aerial-media-content-1.jpg",
+        image: "/images/badges/image-2.jpg",
         title: "Печатные материалы и корпоративные сувениры",
         country: "New-York",
         description:
@@ -130,7 +128,7 @@ export const badgesMockdata: BadgesMockdataType[] = [
         ],
     },
     {
-        image: "/images/cards/aerial-media-content-17.jpg",
+        image: "/images/badges/image-3.jpg",
         title: "Печать с использованием УФ-технологий на разнообразных материалах и поверхностях.",
         country: "New-York",
         description:
@@ -146,8 +144,8 @@ export const badgesMockdata: BadgesMockdataType[] = [
         ],
     },
     {
-        image: "/images/cards/aerial-media-content-13.jpg",
-        title: "Лазерная резка",
+        image: "/images/badges/image-4.jpg",
+        title: "Лазерная резка. По разным неметаллическим материалам.",
         country: "New-York",
         description:
             "Древесина, фанера, МДФ/ДСП, шпон, акриловое стекло, ПЭТ, полистирол, натуральная и искусственная кожа, а также прочие неметаллические материалы.",
@@ -164,7 +162,7 @@ export const badgesMockdata: BadgesMockdataType[] = [
         ],
     },
     {
-        image: "/images/cards/aerial-media-content-11.jpg",
+        image: "/images/badges/image-5.jpg",
         title: "Реализация материалов для рекламных целей.",
         country: "New-York",
         description:

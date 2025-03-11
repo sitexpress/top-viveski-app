@@ -1,9 +1,14 @@
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
   justify-content: start;
   background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-7));
+}
+
+.img {
+height: 250px;
 }
 
 .section {
