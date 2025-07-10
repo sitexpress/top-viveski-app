@@ -138,6 +138,7 @@ export const FeaturesAsymmetrical: React.FC<FeaturesAsymmetricalType> = ({ targe
     const badgeItems = badgesMockdata.map((item, i) => (
         <div
             key={i}
+            // @ts-ignore
             ref={ref}
             className={`opacity-0 transition-opacity duration-300 ${
                 isIntersecting ? `animate__animated animate__pulse` : ""

@@ -13,6 +13,8 @@ export function MapComponent() {
             pt={100}
             mb={30}
             size="xl"
+            // @ts-ignore
+
             ref={ref}
             className={`opacity-0 transition-opacity duration-300 ${
                 isIntersecting ? `animate__animated animate__pulse` : ""

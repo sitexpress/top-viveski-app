@@ -16,6 +16,8 @@ export function GridAsymmetrical() {
     return (
         <Container
             size="lg"
+            // @ts-ignore
+
             ref={ref}
             className={`opacity-0 transition-opacity duration-300 ${
                 isIntersecting ? `animate__animated animate__pulse` : ""
