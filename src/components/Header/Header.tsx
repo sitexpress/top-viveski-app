@@ -1,26 +1,22 @@
 import {
     IconBook,
     IconChartPie3,
-    IconChevronDown,
     IconCode,
     IconCoin,
     IconFingerprint,
+    IconMapPinFilled,
     IconNotification,
 } from "@tabler/icons-react";
 import {
-    Anchor,
     Box,
     Burger,
     Button,
-    Center,
     Collapse,
     Divider,
     Drawer,
     Flex,
     Group,
-    HoverCard,
     ScrollArea,
-    SimpleGrid,
     Text,
     ThemeIcon,
     Title,
@@ -30,7 +26,6 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 
 import classes from "./Header.module.css";
-import { ColorSchemeToggle } from "../ColorSchemeToggle/ColorSchemeToggle";
 import { useEffect, useState } from "react";
 import { FullScreenModal } from "../FullScreenModal/FullScreenModal";
 import "../../../local.fonts/PressStart.css";
@@ -110,85 +105,50 @@ export function Header() {
             {opened && <FullScreenModal opened={opened} close={close} />}
             <header className={scrollPosition === 0 ? classes.header_top : classes.header_scrolled}>
                 <Group justify="space-between" h="100%">
-                    <Group visibleFrom="sm">
+                    <Flex  justify="center" align="center" gap={5} visibleFrom="sm" direction="column">
                         <Text
-                            size="14px"
+                            size="24px"
                             fw={700}
-                            fs="32px"
                             c={
                                 scrollPosition === 0
                                     ? "light-dark(var(--mantine-color-white), var(--mantine-color-white))"
                                     : "light-dark(var(--mantine-color-black), var(--mantine-color-white))"
                             }
-                            style={{ fontFamily: "PressStart" }}
                         >
                             Топ вывески
                         </Text>
-
-                        {/* <ColorSchemeToggle /> */}
-                    </Group>
+                        <Flex justify="center" align="center" gap={5}>
+                            <IconMapPinFilled size="20px"  color={scrollPosition === 0 ? "white" : "dark.6"}/>
+                            <Text size="sm" fw={500} c={scrollPosition === 0 ? "white" : "dark.6"}>
+                                г.Нальчик
+                            </Text>
+                        </Flex>
+                    </Flex>
 
                     <Group h="100%" gap={0} visibleFrom="sm">
                         <a href="/" className={scrollPosition === 0 ? classes.link_top : classes.link_scrolled}>
                             Главная
                         </a>
-                        {/* <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
-                            <HoverCard.Target>
-                                <a href="#" className={classes.link}>
-                                    <Center inline>
-                                        <Box component="span" mr={5}>
-                                            Features
-                                        </Box>
-                                        <IconChevronDown size={16} color={theme.colors.blue[6]} />
-                                    </Center>
-                                </a>
-                            </HoverCard.Target>
 
-                            <HoverCard.Dropdown style={{ overflow: "hidden" }}>
-                                <Group justify="space-between" px="md">
-                                    <Text fw={500}>Features</Text>
-                                    <Anchor href="#" fz="xs">
-                                        View all
-                                    </Anchor>
-                                </Group>
-
-                                <Divider my="sm" />
-
-                                <SimpleGrid cols={2} spacing={0}>
-                                    {links}
-                                </SimpleGrid>
-
-                                <div className={classes.dropdownFooter}>
-                                    <Group justify="space-between">
-                                        <div>
-                                            <Text fw={500} fz="sm">
-                                                Get started
-                                            </Text>
-                                            <Text size="xs" c="dimmed">
-                                                Their food sources have decreased, and their numbers
-                                            </Text>
-                                        </div>
-                                        <Button variant="default">Get started</Button>
-                                    </Group>
-                                </div>
-                            </HoverCard.Dropdown>
-                        </HoverCard> */}
                         <a href="/contact" className={scrollPosition === 0 ? classes.link_top : classes.link_scrolled}>
                             Контакты
                         </a>
-                        {/* <a href="#" className={scrollPosition === 0 ? classes.link_top : classes.link_scrolled}>
-                            Academy
-                        </a> */}
                     </Group>
 
-                    <Group visibleFrom="sm">
+                    {/* <Group visibleFrom="sm">
                         <Button onClick={open} color="#202A44">
                             Обратный звонок
                         </Button>
-                        <Button size="sm" component="a" href="tel:+79280777722" color="#FED8B1" c={theme.colors.dark[6]}>
+                        <Button
+                            size="sm"
+                            component="a"
+                            href="tel:+79280777722"
+                            color="#FED8B1"
+                            c={theme.colors.dark[6]}
+                        >
                             Позвонить
                         </Button>
-                    </Group>
+                    </Group> */}
                     <Burger
                         opened={drawerOpened}
                         onClick={toggleDrawer}
@@ -208,18 +168,13 @@ export function Header() {
                 size="100%"
                 padding="md"
                 title={
-                    <Flex direction="column" >
-                        <Title order={1} size="lg" style={{ fontFamily: "PressStart" }}>
+                    <Flex direction="column" justify="center" align="center">
+                        <Title order={1} size="md" style={{ fontFamily: "PressStart" }}>
                             Топ вывески
                         </Title>
-                        <Text
-                            size="xs"
-                            ml="xl"
-                            style={{ fontFamily: "PressStart" }}
-                        >
+                        <Text size="18px" fw={500} >
                             г.Нальчик
                         </Text>
-                        {/* <ColorSchemeToggle /> */}
                     </Flex>
                 }
                 hiddenFrom="sm"
@@ -231,24 +186,12 @@ export function Header() {
                     <a href="/" className={classes.link_scrolled}>
                         Главная
                     </a>
-                    {/* <UnstyledButton className={classes.link} onClick={toggleLinks}>
-                        <Center inline>
-                            <Box component="span" mr={5}>
-                                Features
-                            </Box>
-                            <IconChevronDown size={16} color={theme.colors.blue[6]} />
-                        </Center>
-                    </UnstyledButton> */}
                     <Collapse in={linksOpened}>{links}</Collapse>
                     <a href="/contact" className={classes.link_scrolled}>
                         Контакты
                     </a>
-                    {/* <a href="#"  className={classes.link_scrolled}>
-                        Academy
-                    </a> */}
 
                     <Divider mt={20} mb={40} />
-
                     <Group justify="center" grow pb="xl" px="md">
                         <Button
                             variant="default"
@@ -260,8 +203,13 @@ export function Header() {
                             Обратный звонок
                         </Button>
 
-                        <Button size="sm" component="a" href="tel:+79280777722" color="#FED8B1" c={theme.colors.dark[6]}>
-                            
+                        <Button
+                            size="sm"
+                            component="a"
+                            href="tel:+79280777722"
+                            color="#FED8B1"
+                            c={theme.colors.dark[6]}
+                        >
                             Позвонить
                         </Button>
                     </Group>

@@ -3,15 +3,12 @@ import {
     IconBalloon,
     IconBarrierBlock,
     IconBrandDocker,
-    IconBrandYoutube,
     IconBuildings,
     IconBulldozer,
     IconCake,
     IconCapture,
     IconChartColumn,
     IconCylinder,
-    IconDrone,
-    IconFrustum,
     IconGlobe,
     IconLeaf2,
     IconMessageChatbot,
@@ -19,16 +16,10 @@ import {
     IconRotate3d,
     IconStopwatch,
 } from "@tabler/icons-react";
-import { Badge, Button, Container, Flex, Group, SimpleGrid, Text, Title, useMantineTheme } from "@mantine/core";
 import classes from "./FeaturesAsymmetrical.module.css";
-import { BadgeCard } from "../BadgeCard/BadgeCard";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
-
-interface FeatureProps extends React.ComponentPropsWithoutRef<"div"> {
-    icon: React.FC<any>;
-    title: string;
-    description: string;
-}
+import { Card, Flex, Group, Image, Text, Badge, SimpleGrid } from "@mantine/core";
+import { useIntersectionObserver } from "@/hooks/intersection";
 
 export type BadgesType = {
     icon: ForwardRefExoticComponent<IconProps & RefAttributes<Icon>>;
@@ -46,54 +37,6 @@ export type BadgesMockdataType = {
     badges: BadgesType[];
 };
 
-function Feature({ icon: Icon, title, description, className, ...others }: FeatureProps) {
-    return (
-        <div className={classes.feature} {...others}>
-            <div className={classes.overlay} />
-
-            <div className={classes.content}>
-                <Icon size={38} className={classes.icon} stroke={1.5} />
-                <Text fw={700} fz="lg" mb="xs" mt={5} className={classes.title_sub}>
-                    {title}
-                </Text>
-                <Text c="dimmed" fz="sm">
-                    {description}
-                </Text>
-
-                <Button
-                    variant="gradient"
-                    color="dark"
-                    mt={10}
-                    gradient={{ from: "#3F4AB7", to: "rgb(96, 109, 255)", deg: 64 }}
-                >
-                    Book Now
-                </Button>
-            </div>
-        </div>
-    );
-}
-
-const mockdata = [
-    {
-        icon: IconDrone,
-        title: "AERIAL PHOTOGRAPHY",
-        description:
-            "With the latest high-tech unmanned aerial equipment, obtaining a bird's-eye view has never been simpler!",
-    },
-    {
-        icon: IconBrandYoutube,
-        title: "VIDEO EDITING",
-        description:
-            "Transform a routine moment into a customized cinematic experience. Life has never seemed so vibrant!",
-    },
-    {
-        icon: IconFrustum,
-        title: "3D MAPPING",
-        description:
-            "Reduce those man-hours by 50%! Land surveying can be completed in minutes by utilizing pre-mapped flight plans even before we reach the job site.",
-    },
-];
-
 export const badgesMockdata: BadgesMockdataType[] = [
     {
         image: "/images/badges/image-1.jpg",
@@ -105,7 +48,7 @@ export const badgesMockdata: BadgesMockdataType[] = [
         discount: 5,
         price: 400,
         badges: [
-            { icon: IconBuildings, label: "Aerial imagery"},
+            { icon: IconBuildings, label: "Aerial imagery" },
             { icon: IconCake, label: "Birthdays" },
             { icon: IconLeaf2, label: "Nature" },
             { icon: IconBalloon, label: "Weddings" },
@@ -180,23 +123,6 @@ export const badgesMockdata: BadgesMockdataType[] = [
             { icon: IconBrandDocker, label: "Environmental monitoring" },
         ],
     },
-    // {
-    //     image: "",
-    //     title: "Ensysta Dashboard",
-    //     country: "New-York",
-    //     description:
-    //         "Our dashboard centralizes access to all deliverables—videos, photos, interactive 3D maps, and photogrammetry models. With its user-friendly, shareable platform, it streamlines communication, keeps teams aligned, and enhances decision-making. By providing full project transparency and actionable insights, Ensysta Dashboard ensures you stay in control from start to finish.",
-    //     fitted: "Ideal for builders and construction companies",
-    //     discount: 5,
-    //     price: 0,
-    //     badges: [
-    //         { icon: IconBarrierBlock, label: "Construction" },
-    //         { icon: IconStopwatch, label: "Fast delivery" },
-    //         { icon: IconMessageChatbot, label: "Support included" },
-    //         { icon: IconShieldHalfFilled, label: "Safe and secure store" },
-    //         { icon: IconDeviceLaptop, label: "Everything is in one web-app" },
-    //     ],
-    // },
 ];
 
 type FeaturesAsymmetricalType = {
@@ -204,11 +130,27 @@ type FeaturesAsymmetricalType = {
     targetRef?: any;
 };
 
-export const FeaturesAsymmetrical: React.FC<FeaturesAsymmetricalType> = ({ mode, targetRef }) => {
-    const theme = useMantineTheme()
-    const items = mockdata.map((item) => <Feature {...item} key={item.title} />);
-    // const badgeItems = badgesMockdata.map((item) => <BadgeCard key={item.title} {...item} />);
-    const badgeItems = badgesMockdata.map((item) => <BadgeCard key={item.title} {...item} />);
+export const FeaturesAsymmetrical: React.FC<FeaturesAsymmetricalType> = ({ targetRef }) => {
+    const [ref, isIntersecting] = useIntersectionObserver({
+        threshold: 0.1,
+    });
+
+    const badgeItems = badgesMockdata.map((item, i) => (
+        <div
+            key={i}
+            ref={ref}
+            className={`opacity-0 transition-opacity duration-300 ${
+                isIntersecting ? `animate__animated animate__pulse` : ""
+            }`}
+        >
+            <Card shadow="md" radius="xl" padding="0" className={classes.card}>
+                <Image src={item.image} alt={item.title} width="300" height="300" className={classes.img_catalog} />
+            </Card>
+            <Text fz="sm" c="dimmed" mt="sm" ta="center">
+                {item.title}
+            </Text>
+        </div>
+    ));
 
     return (
         <Flex
@@ -217,32 +159,23 @@ export const FeaturesAsymmetrical: React.FC<FeaturesAsymmetricalType> = ({ mode,
             direction="column"
             pt={{ base: 30, sm: 30, md: 30, lg: 10, xg: 110, xl: 100 }}
             mb={30}
-            gap={100}
+            p={20}
         >
             <Flex justify="center" align="center" direction="column" ref={targetRef}>
                 <Group justify="center">
-                    <Badge
-                        size="lg"
-                        color="#FED8B1"
-                        c={theme.colors.dark[6]}
-                    >
+                    <Badge size="lg" color="yellow.3" c="dark.6">
                         Наши услуги
                     </Badge>
                 </Group>
-
-                <Title order={2} className={classes.title} ta="center" mt="sm">
-                    Все наши услуги в одном месте
-                </Title>
-
-                <Text c="dimmed" className={classes.description} ta="center" mt="md">
-                    Оставьте заявку и менеджер обязательно с Вами свяжется.
+                <Text c="dimmed" className={classes.description} ta="center" mt="md" size="xl">
+                    Наши услуги в одном месте
                 </Text>
             </Flex>
-            <Container size="xl">
-                <SimpleGrid cols={{ base: 1, sm: 3 }} spacing={50}>
-                    {mode === "badge-cards" ? badgeItems : mode === "features-asymmetrical" ? items : ""}
-                </SimpleGrid>
-            </Container>
+
+            {/* <SimpleGrid cols={{ base: 2}} spacing="xl" mt={50}> */}
+            <SimpleGrid cols={{ base: 2, xs: 3, sm: 3, md: 3, lg: 5, xl: 5 }} spacing="xl" mt={50}>
+                {badgeItems}
+            </SimpleGrid>
         </Flex>
     );
 };

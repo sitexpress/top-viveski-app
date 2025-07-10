@@ -980,6 +980,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lottiefiles/dotlottie-react@npm:^0.14.2":
+  version: 0.14.2
+  resolution: "@lottiefiles/dotlottie-react@npm:0.14.2"
+  dependencies:
+    "@lottiefiles/dotlottie-web": "npm:0.47.0"
+  peerDependencies:
+    react: ^17 || ^18 || ^19
+  checksum: 10c0/a663e6f73411532a50f1163b81339b71a6c185aaf5d3b009a307b381c925c2100191d525859544adb975c885eb631fd152cd26479a072d641e69343b0917b137
+  languageName: node
+  linkType: hard
+
+"@lottiefiles/dotlottie-web@npm:0.47.0":
+  version: 0.47.0
+  resolution: "@lottiefiles/dotlottie-web@npm:0.47.0"
+  checksum: 10c0/d386733e24b713624710a0ea644403befebc6b4bfb0339a85e2f37358bf042ee790f6d4d4ea72c823eaa15b9e812dd1afd32ed8e16c4eb2a5a60b6245dfd9953
+  languageName: node
+  linkType: hard
+
 "@mantine/carousel@npm:^7.15.2":
   version: 7.15.2
   resolution: "@mantine/carousel@npm:7.15.2"
@@ -1121,6 +1139,72 @@ __metadata:
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
   checksum: 10c0/5bd7576bb1b38a47a7fc7b51ac9f38748e772beebc56200450c4a817d712232b8f1d3ef70532c80840243c657d491cf6a6be1e3a214cff907645819fdc34aadd
+  languageName: node
+  linkType: hard
+
+"@react-spring/animated@npm:~10.0.1":
+  version: 10.0.1
+  resolution: "@react-spring/animated@npm:10.0.1"
+  dependencies:
+    "@react-spring/shared": "npm:~10.0.1"
+    "@react-spring/types": "npm:~10.0.1"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/aaccd4a8b0280ac846d463b253ad8f092ee4afc9dbedc8e77616adf5399ffec755344f09fdd8487cadaf815840dff84d354d1143579c27c2fcd6937549b5fc40
+  languageName: node
+  linkType: hard
+
+"@react-spring/core@npm:~10.0.1":
+  version: 10.0.1
+  resolution: "@react-spring/core@npm:10.0.1"
+  dependencies:
+    "@react-spring/animated": "npm:~10.0.1"
+    "@react-spring/shared": "npm:~10.0.1"
+    "@react-spring/types": "npm:~10.0.1"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/059b122dda4138e5e7e461abd49350921e326735ca9a1d8aa19b1fdbae0937661b5f71af6fe82fd8f59e8db5549627849b38cc3f7ef2ec7ee9c93c3d6225174f
+  languageName: node
+  linkType: hard
+
+"@react-spring/rafz@npm:~10.0.1":
+  version: 10.0.1
+  resolution: "@react-spring/rafz@npm:10.0.1"
+  checksum: 10c0/cba76f143d3a06f79dd0c09f7aefd17df9cca9b2c1ef7f9103255e5351326f4a42a5a1366f731a78f74380d96ba683bcc2a49312ed1e4b9e9e249e72c9ff68cb
+  languageName: node
+  linkType: hard
+
+"@react-spring/shared@npm:~10.0.1":
+  version: 10.0.1
+  resolution: "@react-spring/shared@npm:10.0.1"
+  dependencies:
+    "@react-spring/rafz": "npm:~10.0.1"
+    "@react-spring/types": "npm:~10.0.1"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/f056aaa018b3744afd8244e8eea24534d32f92fad9ace815b80e159b296fb5db148e2c9bd840ad9a5188e7a3c0778fd564b8af9ae02cd500e019a228398fb3cf
+  languageName: node
+  linkType: hard
+
+"@react-spring/types@npm:~10.0.1":
+  version: 10.0.1
+  resolution: "@react-spring/types@npm:10.0.1"
+  checksum: 10c0/260890f9c156dc69b77c846510017156d8c0a07cce70edc7c108e57b0cf4122b26a15e724b191481a51b2c914296de9e81d56618b2c339339d4b221930691baa
+  languageName: node
+  linkType: hard
+
+"@react-spring/web@npm:^10.0.1":
+  version: 10.0.1
+  resolution: "@react-spring/web@npm:10.0.1"
+  dependencies:
+    "@react-spring/animated": "npm:~10.0.1"
+    "@react-spring/core": "npm:~10.0.1"
+    "@react-spring/shared": "npm:~10.0.1"
+    "@react-spring/types": "npm:~10.0.1"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/a0c788c9fd881ccb834feb22fc0694e74e59f7b76e498f0096f5b65e2c9812513955bf45ee27d7c5348f56a7bba7c5a6961d4be663728bb2172fe5aa6b6bdfc4
   languageName: node
   linkType: hard
 
@@ -2049,6 +2133,13 @@ __metadata:
     require-from-string: "npm:^2.0.2"
     uri-js: "npm:^4.2.2"
   checksum: 10c0/ac4f72adf727ee425e049bc9d8b31d4a57e1c90da8d28bcd23d60781b12fcd6fc3d68db5df16994c57b78b94eed7988f5a6b482fd376dc5b084125e20a0a622e
+  languageName: node
+  linkType: hard
+
+"animate.css@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "animate.css@npm:4.1.1"
+  checksum: 10c0/28fcf5a5f502e4c12186846d22aa1cd63b835955160a97116930c78bff8a89135aa5c57f94010252a29456ada7cfc8ed8791cac02521ec6402befaf883937159
   languageName: node
   linkType: hard
 
@@ -3000,6 +3091,15 @@ __metadata:
   version: 1.5.38
   resolution: "electron-to-chromium@npm:1.5.38"
   checksum: 10c0/f44715632fce33ac2444e5f0ac54684640b95bbfcdde47153e727645c33f5d18110d5af5348120a8345707c6c219d6109573b6acba56d819ca607010b75931ef
+  languageName: node
+  linkType: hard
+
+"embla-carousel-autoplay@npm:^8.6.0":
+  version: 8.6.0
+  resolution: "embla-carousel-autoplay@npm:8.6.0"
+  peerDependencies:
+    embla-carousel: 8.6.0
+  checksum: 10c0/d7e5cb79c1474b3d27621302e63dedf783a281ae0464b21b87183d58103f938d22be9f6a4735de4b1b19806606006da43f6151497df91c3edbbc99a4dae4a94f
   languageName: node
   linkType: hard
 
@@ -5177,12 +5277,14 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.15.0"
     "@ianvs/prettier-plugin-sort-imports": "npm:^4.4.0"
+    "@lottiefiles/dotlottie-react": "npm:^0.14.2"
     "@mantine/carousel": "npm:^7.15.2"
     "@mantine/core": "npm:7.15.1"
     "@mantine/form": "npm:^7.16.1"
     "@mantine/hooks": "npm:7.15.1"
     "@mantine/modals": "npm:^7.16.1"
     "@mantine/notifications": "npm:^7.16.1"
+    "@react-spring/web": "npm:^10.0.1"
     "@reduxjs/toolkit": "npm:^2.5.1"
     "@storybook/react": "npm:^8.4.5"
     "@storybook/react-vite": "npm:^8.4.5"
@@ -5194,8 +5296,10 @@ __metadata:
     "@types/react": "npm:^18.3.12"
     "@types/react-dom": "npm:^18.3.1"
     "@vitejs/plugin-react": "npm:^4.3.4"
+    animate.css: "npm:^4.1.1"
     axios: "npm:^1.7.9"
     dotenv: "npm:^16.4.7"
+    embla-carousel-autoplay: "npm:^8.6.0"
     embla-carousel-react: "npm:^7.1.0"
     eslint: "npm:^9.15.0"
     eslint-config-mantine: "npm:^4.0.3"
@@ -5213,6 +5317,7 @@ __metadata:
     react-player: "npm:^2.16.0"
     react-redux: "npm:^9.2.0"
     react-router-dom: "npm:^7.0.1"
+    simple-parallax-js: "npm:^6.2.1"
     storybook: "npm:^8.4.5"
     storybook-dark-mode: "npm:^4.0.2"
     stylelint: "npm:^16.10.0"
@@ -6757,6 +6862,16 @@ __metadata:
   version: 4.1.0
   resolution: "signal-exit@npm:4.1.0"
   checksum: 10c0/41602dce540e46d599edba9d9860193398d135f7ff72cab629db5171516cfae628d21e7bfccde1bbfdf11c48726bc2a6d1a8fb8701125852fbfda7cf19c6aa83
+  languageName: node
+  linkType: hard
+
+"simple-parallax-js@npm:^6.2.1":
+  version: 6.2.1
+  resolution: "simple-parallax-js@npm:6.2.1"
+  peerDependencies:
+    react: ">=17.0.0"
+    react-dom: ">=17.0.0"
+  checksum: 10c0/835940e06ac87336afbf45b861c43fab4a6447dffce4aa75d2da0d50053e9998d9408dd6c6fe9013a09367aa391609ba91fb14599c7a334ce99303e9a0617417
   languageName: node
   linkType: hard
 

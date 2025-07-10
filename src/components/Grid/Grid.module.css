@@ -1,0 +1,22 @@
+.col {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.description {
+    max-width: 600px;
+    margin: auto;
+
+    &::after {
+        content: "";
+        display: block;
+        /* background-color: var(--mantine-color-blue-filled); */
+        background-color: rgb(96, 109, 255);
+        width: 45px;
+        height: 2px;
+        margin-top: var(--mantine-spacing-sm);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

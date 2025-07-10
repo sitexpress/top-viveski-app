@@ -13,6 +13,8 @@ import { MapComponent } from "@/components/Map/MapComponent";
 import { GetInTouch } from "@/components/GetInTouch/GetInTouch";
 import { Banner } from "@/components/Banner/Banner";
 import { useScrollIntoView } from '@mantine/hooks';
+import { GridAsymmetrical } from "@/components/Grid/Grid";
+import { PortfolioCarousel } from "@/components/PortfolioCarousel/PortfolioCarousel";
 
 
 export function HomePage() {
@@ -57,9 +59,10 @@ export function HomePage() {
             <Header />
             <HeroImageBackground page="home" scrollIntoView={scrollIntoView} />
             <FeaturesAsymmetrical mode="badge-cards" targetRef={targetRef}/>
-            {/* <FeaturesAsymmetrical mode="features-asymmetrical"/> */}
+            <GridAsymmetrical/>
+            {/* <PortfolioCarousel/> */}
             <Banner/>
-            {/* <Divider label="Ensysta Inc." pt={40} mb={50} /> */}
+            {/* <Divider label="Топ Вывески" pt={40} mb={50} /> */}
             <MapComponent />
             <FooterLinks />
         </>

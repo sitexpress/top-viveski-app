@@ -58,31 +58,13 @@ export function FooterLinks() {
         <footer className={classes.footer}>
             <Container className={classes.inner}>
                 <div className={classes.logo}>
-                    {/* <Title order={2} size="lg">
-                        Ensysta Inc.
-                    </Title> */}
-                    {/* <Text
-                        size="lg"
-                        fw={700}
-                        variant="gradient"
-                        component="span"
-                        gradient={{ from: "#3F4AB7", to: "rgba(166, 174, 255, 1)", deg: 64 }}
-                    >
-                        .
-                    </Text> */}
                     <Flex direction="column" align="start">
                         <Title order={1} size="lg" style={{ fontFamily: "PressStart" }}>
                             Топ вывески
                         </Title>
-                        {/* <Text size="10px" ml="4px" style={{ fontFamily: "PressStart" }}>
-                            г.Нальчик
-                        </Text> */}
-                        {/* <ColorSchemeToggle /> */}
+                     
                     </Flex>
-                    {/* <Text size="xs" c="dimmed" className={classes.description}>
-                        Visualize Your Progress. We deliver managing and supervising instruments to make construction
-                        processes better..
-                    </Text> */}
+          
                     <Text size="xs" c="dimmed" className={classes.description}>
                         Яркие идеи. Видимые результаты.
                     </Text>
@@ -90,23 +72,8 @@ export function FooterLinks() {
                         Мы производим качественные вывески, лайтбоксы и рекламную продукцию, используя современные
                         технологии и материалы.
                     </Text>
-                    {/* <Image radius="md" mt={20} w={150} fit="contain" src="/images/certified_pilot.png" /> */}
                 </div>
-                <div className={classes.groups}>{groups}</div>
             </Container>
-            {/* <Container className={classes.afterFooter}>
-                <Image
-                    radius="md"
-                    h={50}
-                    w="auto"
-                    fit="contain"
-                    src="/images/certified_pilot.png"
-                />
-                <Text c="dimmed" size="sm">
-                    Licensed Drone Services You Can Trust Insured drones, FAA Part 107 pilots, serving New York, New
-                    Jersey, and surrounding areas.
-                </Text>
-            </Container> */}
             <Container className={classes.afterFooter}>
                 <Flex justify="center" align="center">
                     <Text c="dimmed" size="12px" mr="xs">
