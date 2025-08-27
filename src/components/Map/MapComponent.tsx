@@ -23,7 +23,7 @@ export function MapComponent() {
             <Flex justify="center" align="center" direction="column">
                 <Group justify="center">
                     <Badge size="lg" color="yellow.3" c="dark.6">
-                        Контакты
+                        Контактыы
                     </Badge>
                 </Group>
                 <Contacts />
