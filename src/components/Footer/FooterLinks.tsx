@@ -1,5 +1,5 @@
 import { IconBrandInstagram, IconBrandTelegram, IconBrandTwitter, IconBrandYoutube } from "@tabler/icons-react";
-import { ActionIcon, Container, Group, Text, Title, Image, Flex } from "@mantine/core";
+import { ActionIcon, Container, Group, Text, Title, Image, Flex, Box } from "@mantine/core";
 import classes from "./FooterLinks.module.css";
 
 const data = [
@@ -55,50 +55,49 @@ export function FooterLinks() {
     });
 
     return (
-        <footer className={classes.footer}>
-            <Container className={classes.inner}>
-                <div className={classes.logo}>
-                    <Flex direction="column" align="start">
-                        <Title order={1} size="lg" style={{ fontFamily: "PressStart" }}>
-                            Топ вывески
-                        </Title>
-                     
-                    </Flex>
-          
-                    <Text size="xs" c="dimmed" className={classes.description}>
-                        Яркие идеи. Видимые результаты.
-                    </Text>
-                    <Text pt={10} size="xs" c="dimmed" className={classes.description}>
-                        Мы производим качественные вывески, лайтбоксы и рекламную продукцию, используя современные
-                        технологии и материалы.
-                    </Text>
-                </div>
-            </Container>
-            <Container className={classes.afterFooter}>
-                <Flex justify="center" align="center">
-                    <Text c="dimmed" size="12px" mr="xs">
-                        © 2025.
-                    </Text>
-                    <Text c="dimmed" size="10px" style={{ fontFamily: "PressStart" }} mr="xs">
-                        Топ вывески.
-                    </Text>
-                    <Text c="dimmed" size="12px">
-                        Все права защищены.
-                    </Text>
-                </Flex>
+            <footer className={classes.footer}>
+                <Container className={classes.inner}>
+                    <div className={classes.logo}>
+                        <Flex direction="column" align="start">
+                            <Title order={1} size="lg" style={{ fontFamily: "PressStart" }}>
+                                Топ вывески
+                            </Title>
+                        </Flex>
 
-                <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">
-                    <ActionIcon size="lg" color="gray" variant="subtle">
-                        <IconBrandTelegram size={18} stroke={1.5} />
-                    </ActionIcon>
-                    <ActionIcon size="lg" color="gray" variant="subtle">
-                        <IconBrandYoutube size={18} stroke={1.5} />
-                    </ActionIcon>
-                    <ActionIcon size="lg" color="gray" variant="subtle">
-                        <IconBrandInstagram size={18} stroke={1.5} />
-                    </ActionIcon>
-                </Group>
-            </Container>
-        </footer>
+                        <Text size="xs" c="dimmed" className={classes.description}>
+                            Яркие идеи. Видимые результаты.
+                        </Text>
+                        <Text pt={10} size="xs" c="dimmed" className={classes.description}>
+                            Мы производим качественные вывески, лайтбоксы и рекламную продукцию, используя современные
+                            технологии и материалы.
+                        </Text>
+                    </div>
+                </Container>
+                <Container className={classes.afterFooter}>
+                    <Flex justify="center" align="center">
+                        <Text c="dimmed" size="12px" mr="xs">
+                            © 2025.
+                        </Text>
+                        <Text c="dimmed" size="10px" style={{ fontFamily: "PressStart" }} mr="xs">
+                            Топ вывески.
+                        </Text>
+                        <Text c="dimmed" size="12px">
+                            Все права защищены.
+                        </Text>
+                    </Flex>
+
+                    <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">
+                        <ActionIcon size="lg" color="gray" variant="subtle">
+                            <IconBrandTelegram size={18} stroke={1.5} />
+                        </ActionIcon>
+                        <ActionIcon size="lg" color="gray" variant="subtle">
+                            <IconBrandYoutube size={18} stroke={1.5} />
+                        </ActionIcon>
+                        <ActionIcon size="lg" color="gray" variant="subtle">
+                            <IconBrandInstagram size={18} stroke={1.5} />
+                        </ActionIcon>
+                    </Group>
+                </Container>
+            </footer>
     );
 }

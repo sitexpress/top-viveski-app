@@ -1,12 +1,4 @@
-import {
-    IconBook,
-    IconChartPie3,
-    IconCode,
-    IconCoin,
-    IconFingerprint,
-    IconMapPinFilled,
-    IconNotification,
-} from "@tabler/icons-react";
+import { IconBook, IconChartPie3, IconCode, IconCoin, IconFingerprint, IconNotification } from "@tabler/icons-react";
 import {
     Box,
     Burger,
@@ -29,6 +21,9 @@ import classes from "./Header.module.css";
 import { useEffect, useState } from "react";
 import { FullScreenModal } from "../FullScreenModal/FullScreenModal";
 import "../../../local.fonts/PressStart.css";
+import { Link, useLocation } from "react-router-dom";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { isLinkActiveCheck } from "@/utils/isLinkActiveCheck";
 
 const mockdata = [
     {
@@ -69,18 +64,17 @@ export function Header() {
     const theme = useMantineTheme();
     const [scrollPosition, setScrollPosition] = useState(0);
     const [opened, { open, close }] = useDisclosure(false);
+    const [active, setActive] = useState("");
 
     const handleScroll = () => {
         const position = window.scrollY;
         setScrollPosition(position);
     };
 
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+    const { pathname } = useLocation();
+    console.log("pathname:", pathname);
+    console.log("active:", pathname);
+    useScrollToTop();
 
     const links = mockdata.map((item) => (
         <UnstyledButton className={classes.subLink} key={item.title}>
@@ -89,7 +83,7 @@ export function Header() {
                     <item.icon size={22} color={theme.colors.blue[6]} />
                 </ThemeIcon>
                 <div>
-                    <Text size="sm" fw={500}>
+                    <Text size="sm" fw={500} c="white">
                         {item.title}
                     </Text>
                     <Text size="xs" c="dimmed">
@@ -100,64 +94,64 @@ export function Header() {
         </UnstyledButton>
     ));
 
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    useEffect(() => {
+        setActive(pathname);
+    }, []);
+
     return (
-        <Box>
+        <Box className={classes.wrapper}>
             {opened && <FullScreenModal opened={opened} close={close} />}
             <header className={scrollPosition === 0 ? classes.header_top : classes.header_scrolled}>
                 <Group justify="space-between" h="100%">
-                    <Flex  justify="center" align="center" gap={5} visibleFrom="sm" direction="column">
-                        <Text
-                            size="24px"
-                            fw={700}
-                            c={
-                                scrollPosition === 0
-                                    ? "light-dark(var(--mantine-color-white), var(--mantine-color-white))"
-                                    : "light-dark(var(--mantine-color-black), var(--mantine-color-white))"
-                            }
-                        >
+                    <Flex justify="center" align="center" gap={5} visibleFrom="sm" direction="column">
+                        <Text size="24px" fw={700} c="white">
                             Топ вывески
                         </Text>
-                        <Flex justify="center" align="center" gap={5}>
-                            <IconMapPinFilled size="20px"  color={scrollPosition === 0 ? "white" : "dark.6"}/>
-                            <Text size="sm" fw={500} c={scrollPosition === 0 ? "white" : "dark.6"}>
-                                г.Нальчик
-                            </Text>
-                        </Flex>
                     </Flex>
 
                     <Group h="100%" gap={0} visibleFrom="sm">
-                        <a href="/" className={scrollPosition === 0 ? classes.link_top : classes.link_scrolled}>
+                        <Link
+                            // href="/"
+                            to={{
+                                pathname: "/",
+                            }}
+                            // active={active === "Главная"}
+                            className={isLinkActiveCheck("/", active) ? classes.link_top_active : classes.link_top}
+                            onClick={() => setActive(pathname)}
+                        >
                             Главная
-                        </a>
+                        </Link>
 
-                        <a href="/contact" className={scrollPosition === 0 ? classes.link_top : classes.link_scrolled}>
+                        <Link
+                            // href="/contact"
+                            to={{
+                                pathname: "/contact",
+                            }}
+                            // active={active === "Контакты"}
+                            className={
+                                isLinkActiveCheck("/contact", active) ? classes.link_top_active : classes.link_top
+                            }
+                            onClick={() => setActive(pathname)}
+                        >
                             Контакты
-                        </a>
+                        </Link>
                     </Group>
 
-                    {/* <Group visibleFrom="sm">
-                        <Button onClick={open} color="#202A44">
-                            Обратный звонок
-                        </Button>
-                        <Button
-                            size="sm"
-                            component="a"
-                            href="tel:+79280777722"
-                            color="#FED8B1"
-                            c={theme.colors.dark[6]}
-                        >
-                            Позвонить
-                        </Button>
-                    </Group> */}
                     <Burger
                         opened={drawerOpened}
                         onClick={toggleDrawer}
                         hiddenFrom="sm"
-                        color={
-                            scrollPosition === 0
-                                ? "light-dark(var(--mantine-color-white), var(--mantine-color-white))"
-                                : "light-dark(var(--mantine-color-black), var(--mantine-color-white))"
-                        }
+                        color="white"
+                        lineSize={4}
+                        size="md"
+                        aria-label="Toggle navigation"
                     />
                 </Group>
             </header>
@@ -172,7 +166,7 @@ export function Header() {
                         <Title order={1} size="md" style={{ fontFamily: "PressStart" }}>
                             Топ вывески
                         </Title>
-                        <Text size="18px" fw={500} >
+                        <Text size="18px" fw={500}>
                             г.Нальчик
                         </Text>
                     </Flex>

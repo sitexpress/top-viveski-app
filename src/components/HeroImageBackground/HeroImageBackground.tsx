@@ -16,10 +16,9 @@ type HeroImageBackgroundType = {
 
 export const HeroImageBackground: React.FC<HeroImageBackgroundType> = ({ page, scrollIntoView }) => {
     const theme = useMantineTheme();
-    
 
     return page === "home" ? (
-        <Flex className={classes.wrapper_home} direction="column" bg="blue.3" pt={100} pb={150}>
+        <Flex className={classes.wrapper_home} direction="column" bg="blue.6" pt={150} pb={150}>
             <Title
                 className="animate__animated animate__backInDown"
                 ta="center"
@@ -30,6 +29,12 @@ export const HeroImageBackground: React.FC<HeroImageBackgroundType> = ({ page, s
             >
                 Топ Вывески
             </Title>
+
+            <Container size={640} ta="center">
+                <Text className={classes.description} ta="center" size="24px" fw={700} c="white">
+                    Наружная реклама г.Нальчик
+                </Text>
+            </Container>
 
             <div className="animate__animated animate__wobble">
                 <DotLottieReact
@@ -45,22 +50,10 @@ export const HeroImageBackground: React.FC<HeroImageBackgroundType> = ({ page, s
             </div>
 
             <div className="animate__animated animate__bounce">
-                <Container size={640} ta="center">
-                    <Text
-                        className={classes.description}
-                        ta="center"
-                        size="24px"
-                        fw={700}
-                        c="white"
-                        // style={{ fontFamily: "PressStart" }}
-                    >
-                        Наружная реклама г.Нальчик
-                    </Text>
-                </Container>
                 <Container size="80%" pt={20}>
                     <div className="animate__animated animate__bounce">
                         <Flex gap={10} wrap="wrap" justify="center">
-                            <Badge color="blue" size="lg">
+                            <Badge color="blue.3 " c="dark.6" size="lg">
                                 Рекламные конструкции
                             </Badge>
                             <Badge color="yellow.3" c="dark.6" size="md">
@@ -89,7 +82,7 @@ export const HeroImageBackground: React.FC<HeroImageBackgroundType> = ({ page, s
                 </Container>
             </div>
 
-            <Flex direction={{base:"column",  sm:"row"}} gap={10} pt="xl" >
+            <Flex direction={{ base: "column", sm: "row" }} gap={10} pt="xl">
                 <Button
                     size="md"
                     onClick={() =>
@@ -120,14 +113,14 @@ export const HeroImageBackground: React.FC<HeroImageBackgroundType> = ({ page, s
             </Flex>
         </Flex>
     ) : (
-        <div className={classes.wrapper_contact}>
+        <Flex className={classes.wrapper_contact} direction="column" bg="blue.6" pt={150} pb={150}>
             <Dots className={classes.dots} style={{ right: 0, top: 0 }} />
             <Dots className={classes.dots} style={{ left: 0, bottom: 0 }} />
-            <Dots
+            {/* <Dots
                 className={classes.dots_center}
                 style={{ left: "50%", top: "35%", transform: "translate(-50%, -50%)" }}
-            />
-            <Overlay color="#000" opacity={0.65} zIndex={1} />
+            /> */}
+            {/* <Overlay color="#000" opacity={0.65} zIndex={1} /> */}
 
             <div className={classes.inner}>
                 <Title className={classes.title}>
@@ -142,6 +135,19 @@ export const HeroImageBackground: React.FC<HeroImageBackgroundType> = ({ page, s
                         Contact Us
                     </Text>
                 </Container>
+
+                            {/* <div className="animate__animated animate__wobble">
+                <DotLottieReact
+                    className={classes.lottie}
+                    src="/images/hero/animation.lottie"
+                    loop
+                    autoplay
+                    style={{
+                        height: "auto",
+                        width: "1000px",
+                    }}
+                />
+            </div> */}
 
                 <div className={classes.controls}>
                     <Button
@@ -166,6 +172,6 @@ export const HeroImageBackground: React.FC<HeroImageBackgroundType> = ({ page, s
                     </Button>
                 </div>
             </div>
-        </div>
+        </Flex>
     );
 };

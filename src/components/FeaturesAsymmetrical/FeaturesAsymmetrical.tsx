@@ -19,7 +19,7 @@ import {
 import classes from "./FeaturesAsymmetrical.module.css";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { Card, Flex, Group, Image, Text, Badge, SimpleGrid } from "@mantine/core";
-import { useIntersectionObserver } from "@/hooks/intersection";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export type BadgesType = {
     icon: ForwardRefExoticComponent<IconProps & RefAttributes<Icon>>;

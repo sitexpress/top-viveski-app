@@ -13,6 +13,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 0 0 30px 30px;
     @media (max-width: $mantine-breakpoint-md) {
         background-position: 50%;
         background-attachment: fixed;
@@ -31,13 +32,34 @@
 
 .wrapper_contact {
     position: relative;
-    padding-top: 300px;
-    padding-bottom: 300px;
-    background-image: url("/images/cards/aerial-media-content-4.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: black;
+    /* background-image: url("/images/hero/hero-4.jpeg"); */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 0 0 30px 30px;
+        @media (max-width: $mantine-breakpoint-md) {
+        background-position: 50%;
+        background-attachment: fixed;
+        background-position: bottom 10px left -220px;
+        background-repeat: no-repeat;
+        background-size: center;
+    }
+    @media (max-width: $mantine-breakpoint-xs) {
+        background-position: 50%;
+        background-attachment: fixed;
+        background-position: bottom 10px left -240px;
+        background-repeat: no-repeat;
+        background-size: center;
+    }
 }
 
 .title {

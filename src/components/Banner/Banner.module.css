@@ -1,9 +1,19 @@
+
+.wrapper {
+    display: center;
+    justif-content: center;
+    align-items: center
+}
+
 .card {
-    height: 240px;
-    min-height: 340px;
-    background-image: url("/images/photo/2.jpeg");
+
+    height: 440px;
+    min-height: 440px;
+    background-image: url("/images/photo/17.jpeg");
     background-attachment: fixed;
-    background-position: center;
+    background-position: cover;
+    border-radius: 40px;
+
     @media (max-width: $mantine-breakpoint-md) {
         height: 440px;
     }

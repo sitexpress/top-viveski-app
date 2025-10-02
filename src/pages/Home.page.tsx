@@ -1,20 +1,11 @@
 import { Header } from "@/components/Header/Header";
-// import { Welcome } from "../components/Welcome/Welcome";
-import { CardsCarousel } from "@/components/CardsCarousel/CardsCarousel";
-import { FeaturesAsymmetrical } from "@/components/FeaturesAsymmetrical/FeaturesAsymmetrical";
 import { FooterLinks } from "@/components/Footer/FooterLinks";
 import { HeroImageBackground } from "@/components/HeroImageBackground/HeroImageBackground";
-import { notifications } from "@mantine/notifications";
-import { useEffect } from "react";
-import { IconCookie, IconCookieFilled, IconRosetteDiscountCheckFilled } from "@tabler/icons-react";
-import { Group, rem, Button, Text, Divider } from "@mantine/core";
-import classes from "./Home.module.css";
 import { MapComponent } from "@/components/Map/MapComponent";
-import { GetInTouch } from "@/components/GetInTouch/GetInTouch";
 import { Banner } from "@/components/Banner/Banner";
 import { useScrollIntoView } from '@mantine/hooks';
 import { GridAsymmetrical } from "@/components/Grid/Grid";
-import { PortfolioCarousel } from "@/components/PortfolioCarousel/PortfolioCarousel";
+import { FeaturesGrid } from "@/components/Features/FeaturesGrid";
 
 
 export function HomePage() {
@@ -58,11 +49,8 @@ export function HomePage() {
         <>
             <Header />
             <HeroImageBackground page="home" scrollIntoView={scrollIntoView} />
-            <FeaturesAsymmetrical mode="badge-cards" targetRef={targetRef}/>
+            <FeaturesGrid targetRef={targetRef}/>
             <GridAsymmetrical/>
-            {/* <PortfolioCarousel/> */}
-            <Banner/>
-            {/* <Divider label="Топ Вывески" pt={40} mb={50} /> */}
             <MapComponent />
             <FooterLinks />
         </>
