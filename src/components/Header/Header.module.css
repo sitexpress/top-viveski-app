@@ -75,7 +75,7 @@
     padding-left: var(--mantine-spacing-md);
     padding-right: var(--mantine-spacing-md);
     text-decoration: none;
-    color: #ffb061ff;
+    color: #ffe066;
     font-weight: 500;
     font-size: var(--mantine-font-size-sm);
     text-decoration: none;
@@ -83,8 +83,54 @@
         height: 42px;
         width: 100%;
     }
+
     @mixin hover {
-        color: #ffb061ff;
+        color: #ffe066;
+    }
+}
+
+.link_mobile {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-left: var(--mantine-spacing-md);
+    padding-right: var(--mantine-spacing-md);
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: var(--mantine-font-size-sm);
+    text-decoration: none;
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        height: 42px;
+        width: 100%;
+    }
+
+    @mixin hover {
+        color: #74c0fc;
+    }
+}
+
+.link_mobile_active {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-left: var(--mantine-spacing-md);
+    padding-right: var(--mantine-spacing-md);
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: var(--mantine-font-size-sm);
+    text-decoration: none;
+    
+    @media (max-width: $mantine-breakpoint-sm) {
+        height: 42px;
+        width: 100%;
+        color: #228be6;
+    }
+
+    @mixin hover {
+        color: #74c0fc;
     }
 }
 

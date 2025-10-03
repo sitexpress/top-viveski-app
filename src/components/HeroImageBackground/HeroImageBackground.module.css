@@ -163,3 +163,11 @@
     width:700px;
     }
 }
+
+.contacts_lottie {
+    margin: 0 auto;
+    width:600px;
+        @media (max-width: $mantine-breakpoint-md) {
+    width:400px;
+    }
+}

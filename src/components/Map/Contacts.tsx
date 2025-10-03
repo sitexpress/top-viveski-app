@@ -29,7 +29,7 @@ function ContactIcon({ icon: Icon, title, description, ...others }: ContactIconP
 
 const MOCKDATA = [
     // { title: "Почта", description: "hello@mantine.dev", icon: IconAt },
-    { title: "Телефон", description: "+7(928)077-77-22", icon: IconPhone },
+    { title: "Телефон", description: "+7 928 077 77 22", icon: IconPhone },
     { title: "Адрес", description: "Кабардино-Балкарская Республика, Нальчик, Кабардинская улица, 152", icon: IconMapPin },
     { title: "Часы работы", description: "9:00. – 18:00.", icon: IconSun },
 ];

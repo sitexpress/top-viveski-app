@@ -32,7 +32,7 @@ export function GridAsymmetrical() {
             >
                 <Flex justify="center" align="center" direction="column" mb={100}>
                     <Group justify="center">
-                        <Badge size="lg" color="yellow.3" c="dark.6">
+                       <Badge variant="gradient" size="lg" gradient={{ from: "yellow.6", to: "yellow.3", deg: 64 }} c="dark.6">
                             Выполненые работы
                         </Badge>
                     </Group>

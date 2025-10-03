@@ -2,13 +2,15 @@ import { Header } from "@/components/Header/Header";
 import { FooterLinks } from "@/components/Footer/FooterLinks";
 import { HeroImageBackground } from "@/components/HeroImageBackground/HeroImageBackground";
 import { MapComponent } from "@/components/Map/MapComponent";
-import { Banner } from "@/components/Banner/Banner";
-import { useScrollIntoView } from '@mantine/hooks';
+import { useScrollIntoView } from "@mantine/hooks";
 import { GridAsymmetrical } from "@/components/Grid/Grid";
 import { FeaturesGrid } from "@/components/Features/FeaturesGrid";
-
+import { SideBar } from "@/components/SideBar/SideBar";
+import { useEffect, useState } from "react";
+import { LoadingOverlay } from "@mantine/core";
 
 export function HomePage() {
+    const [isLoading, setIsLoading] = useState(false);
     // const hideNotificationsHandler = (cookieNotificationId: string) => {
     //     notifications.hide(cookieNotificationId);
     //     // notifications.cleanQueue();
@@ -38,19 +40,44 @@ export function HomePage() {
     //             withBorder: true,
     //             // classNames: classes,
     //         });
-    //     }, 0);    
+    //     }, 0);
     // }, []);
 
     const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
-        offset: 60, 
-      });
+        offset: 60,
+    });
 
+    useEffect(() => {
+        setIsLoading(true);
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+
+        return () => {
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 10000);
+        };
+    }, []);
+
+    if (isLoading) {
+        return (
+            <LoadingOverlay
+                visible={isLoading}
+                zIndex={1000}
+                overlayProps={{ radius: "sm", blur: 2 }}
+                loaderProps={{ color: "blue", type: "bars" }}
+            />
+        );
+    }
     return (
         <>
+            <SideBar />
             <Header />
             <HeroImageBackground page="home" scrollIntoView={scrollIntoView} />
-            <FeaturesGrid targetRef={targetRef}/>
-            <GridAsymmetrical/>
+            <FeaturesGrid targetRef={targetRef} />
+            <GridAsymmetrical />
             <MapComponent />
             <FooterLinks />
         </>

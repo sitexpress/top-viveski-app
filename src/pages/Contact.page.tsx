@@ -2,24 +2,51 @@ import { Header } from "@/components/Header/Header";
 import { FooterLinks } from "@/components/Footer/FooterLinks";
 import { HeroImageBackground } from "@/components/HeroImageBackground/HeroImageBackground";
 import { FeaturesCards } from "@/components/FeaturesCard/FeaturesCards";
-import { GetInTouch } from "@/components/GetInTouch/GetInTouch";
 import { MapComponent } from "@/components/Map/MapComponent";
-import { Divider } from "@mantine/core";
+import { Divider, LoadingOverlay } from "@mantine/core";
 import { useScrollIntoView } from "@mantine/hooks";
+import { useEffect, useState } from "react";
 
 export function ContactPage() {
-        const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
-            offset: 60,
-          });
+    const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
+        offset: 60,
+    });
+    
+    const [isLoading, setIsLoading] = useState(false);
 
-    return ( 
+    useEffect(() => {
+        setIsLoading(true);
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+
+        return () => {
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 10000);
+        };
+    }, []);
+
+    if (isLoading) {
+        return (
+            <LoadingOverlay
+                visible={isLoading}
+                zIndex={1000}
+                overlayProps={{ radius: "sm", blur: 2 }}
+                loaderProps={{ color: "blue", type: "bars" }}
+            />
+        );
+    }
+
+    return (
         <>
             <Header />
             <HeroImageBackground page="contacts" scrollIntoView={scrollIntoView} />
             <FeaturesCards />
-            <Divider label="Ensysta Inc." pt={100} mb={50} />
+            <Divider label="Топ вывески" pt={100} mb={50} />
             <MapComponent />
-            <GetInTouch targetRef={targetRef}/>
+            {/* <GetInTouch targetRef={targetRef}/> */}
             <FooterLinks />
         </>
     );

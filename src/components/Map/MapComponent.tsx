@@ -1,4 +1,4 @@
-import { AspectRatio, Badge, Container, Flex, Group, Text } from "@mantine/core";
+import { AspectRatio, Badge, Container, Flex,  Text } from "@mantine/core";
 import classes from "./MapComponent.module.css";
 import { Contacts } from "./Contacts";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
@@ -10,7 +10,7 @@ export function MapComponent() {
 
     return (
         <Container
-            pt={100}
+            // pt={100}
             mb={30}
             size="xl"
             // @ts-ignore
@@ -18,12 +18,12 @@ export function MapComponent() {
             ref={ref}
             justify="center"
         >
-            <Flex justify="center" align="center" direction="column">
-                <Group justify="center">
-                    <Badge size="lg" color="yellow.3" c="dark.6">
+            <Flex justify="center" align="center" direction="column" >
+                {/* <Group justify="center">
+                    <Badge variant="gradient" size="lg" gradient={{ from: "yellow.6", to: "yellow.3", deg: 64 }} c="dark.6">
                         Контакты
                     </Badge>
-                </Group>
+                </Group> */}
 
                 <div 
                     className={`opacity-0 transition-opacity duration-300 ${
@@ -33,7 +33,7 @@ export function MapComponent() {
                     <Contacts />
                 </div>
 
-                <Text className={classes.description} ta="center" mt="md" size="xl">
+                <Text className={classes.description} ta="center" mt={100} size="xl">
                     Наша мастерская располагается здесь
                 </Text>
             </Flex>

@@ -79,7 +79,7 @@ export const FeaturesGrid: React.FC<FeaturesGridType> = ({ targetRef }) => {
     return (
         <Container className={classes.wrapper}>
             <Group justify="center">
-                <Badge size="lg" color="yellow.3" c="dark.6">
+                <Badge variant="gradient" size="lg" gradient={{ from: "yellow.6", to: "yellow.3", deg: 64 }} c="dark.6">
                     Услуги
                 </Badge>
             </Group>

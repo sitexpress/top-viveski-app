@@ -1,4 +1,3 @@
-import { IconBook, IconChartPie3, IconCode, IconCoin, IconFingerprint, IconNotification } from "@tabler/icons-react";
 import {
     Box,
     Burger,
@@ -13,17 +12,18 @@ import {
     ThemeIcon,
     Title,
     UnstyledButton,
-    useMantineTheme,
+    useMantineTheme
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { IconBook, IconChartPie3, IconCode, IconCoin, IconFingerprint, IconNotification } from "@tabler/icons-react";
 
-import classes from "./Header.module.css";
-import { useEffect, useState } from "react";
-import { FullScreenModal } from "../FullScreenModal/FullScreenModal";
-import "../../../local.fonts/PressStart.css";
-import { Link, useLocation } from "react-router-dom";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { isLinkActiveCheck } from "@/utils/isLinkActiveCheck";
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import "../../../local.fonts/PressStart.css";
+import { FullScreenModal } from "../FullScreenModal/FullScreenModal";
+import classes from "./Header.module.css";
 
 const mockdata = [
     {
@@ -72,8 +72,6 @@ export function Header() {
     };
 
     const { pathname } = useLocation();
-    console.log("pathname:", pathname);
-    console.log("active:", pathname);
     useScrollToTop();
 
     const links = mockdata.map((item) => (
@@ -118,11 +116,9 @@ export function Header() {
 
                     <Group h="100%" gap={0} visibleFrom="sm">
                         <Link
-                            // href="/"
                             to={{
                                 pathname: "/",
                             }}
-                            // active={active === "Главная"}
                             className={isLinkActiveCheck("/", active) ? classes.link_top_active : classes.link_top}
                             onClick={() => setActive(pathname)}
                         >
@@ -130,11 +126,9 @@ export function Header() {
                         </Link>
 
                         <Link
-                            // href="/contact"
                             to={{
                                 pathname: "/contact",
                             }}
-                            // active={active === "Контакты"}
                             className={
                                 isLinkActiveCheck("/contact", active) ? classes.link_top_active : classes.link_top
                             }
@@ -161,14 +155,12 @@ export function Header() {
                 onClose={closeDrawer}
                 size="100%"
                 padding="md"
+                position="right"
                 title={
                     <Flex direction="column" justify="center" align="center">
                         <Title order={1} size="md" style={{ fontFamily: "PressStart" }}>
                             Топ вывески
                         </Title>
-                        <Text size="18px" fw={500}>
-                            г.Нальчик
-                        </Text>
                     </Flex>
                 }
                 hiddenFrom="sm"
@@ -177,13 +169,34 @@ export function Header() {
                 <ScrollArea h="calc(100vh - 80px" mx="-md">
                     <Divider mb={20} />
 
-                    <a href="/" className={classes.link_scrolled}>
-                        Главная
-                    </a>
-                    <Collapse in={linksOpened}>{links}</Collapse>
-                    <a href="/contact" className={classes.link_scrolled}>
-                        Контакты
-                    </a>
+                    <Flex direction="column" justify="center" align="center">
+                        <NavLink
+                            to={{
+                                pathname: "/",
+                            }}
+                            className={isLinkActiveCheck("/", active) ? classes.link_mobile_active : classes.link_mobile}
+                            onClick={() => {
+                                closeDrawer();
+                                setActive(pathname);
+                            }}
+                        >
+                            Главная
+                        </NavLink>
+
+                        <Collapse in={linksOpened}>{links}</Collapse>
+                        <NavLink
+                            to={{
+                                pathname: "/contact",
+                            }}
+                            className={isLinkActiveCheck("/contact", active) ? classes.link_mobile_active : classes.link_mobile}
+                            onClick={() => {
+                                closeDrawer();
+                                setActive(pathname);
+                            }}
+                        >
+                            Контакты
+                        </NavLink>
+                    </Flex>
 
                     <Divider mt={20} mb={40} />
                     <Group justify="center" grow pb="xl" px="md">
