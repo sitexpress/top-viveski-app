@@ -6,6 +6,7 @@ import { MapComponent } from "@/components/Map/MapComponent";
 import { Divider, LoadingOverlay } from "@mantine/core";
 import { useScrollIntoView } from "@mantine/hooks";
 import { useEffect, useState } from "react";
+import { SideBar } from "@/components/SideBar/SideBar";
 
 export function ContactPage() {
     const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
@@ -41,6 +42,7 @@ export function ContactPage() {
 
     return (
         <>
+            <SideBar />
             <Header />
             <HeroImageBackground page="contacts" scrollIntoView={scrollIntoView} />
             <FeaturesCards />

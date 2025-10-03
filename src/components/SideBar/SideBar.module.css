@@ -1,12 +1,12 @@
 .wrapper {
     position: fixed;
-    bottom: 50px;
-    right: 50px;
+    bottom: 20px;
+    right: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
-    width: 60px;
+    height: 55px;
+    width: 55px;
     z-index: 1000;
     background: white;
     border-radius: 50%; 
