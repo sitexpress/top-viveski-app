@@ -11,7 +11,7 @@ export function ContactPage() {
     const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
         offset: 60,
     });
-    
+
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
